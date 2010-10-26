@@ -10,8 +10,4 @@ group :development do
   gem 'sqlite3-ruby'
 end
 
-# dependencies
-gem 'defined-by'
-
-# TODO: use `gemspec` instead
-# in order to use `gemspec` we have to create and commit gemspec first!
+gemspec

@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    cockpit (0.2.0)
+      defined-by
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -27,6 +33,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  cockpit!
   defined-by
   rake
   shoulda
