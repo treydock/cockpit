@@ -1,5 +1,6 @@
 require 'rake'
-require "rake/rdoctask"
+require 'rake/rdoctask'
+require 'rake/testtask'
 require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s|
@@ -23,13 +24,15 @@ Rake::GemPackageTask.new(spec) do |pkg|
   pkg.package_dir = "pkg"
 end
 
+task :default => :test
+
 desc 'run unit tests'
-task :test do
-  Dir["test/**/*"].each do |file|
-    next unless File.basename(file) =~ /test_/
-    next unless File.extname(file) == ".rb"
-    system "ruby -Ilib #{file}"
+Rake::TestTask.new(:test) do |test|
+  test.test_files = FileList.new('test/**/test_*.rb') do |list|
+    list.exclude 'test/test_helper.rb'
   end
+  test.libs << 'test'
+  test.verbose = true
 end
 
 desc "Create .gemspec file (useful for github)"
