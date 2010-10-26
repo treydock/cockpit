@@ -15,4 +15,4 @@ end
 gem 'defined-by'
 
 # TODO: use `gemspec` instead
-# in order to this we have to gemspec first!
+# in order to use `gemspec` we have to create and commit gemspec first!
