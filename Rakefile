@@ -34,14 +34,14 @@ end
 
 desc "Create .gemspec file (useful for github)"
 task :gemspec do
-  File.open("pkg/#{spec.name}.gemspec", "w") do |f|
+  File.open("#{spec.name}.gemspec", "w") do |f|
     f.puts spec.to_ruby
   end
 end
 
 desc "Build the gem into the current directory"
 task :gem => :gemspec do
-  `gem build pkg/#{spec.name}.gemspec`
+  `gem build #{spec.name}.gemspec`
 end
 
 desc "Publish gem to rubygems"
