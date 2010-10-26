@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     
     settings_with_callbacks do
       name "Lance", :after => :set_name
-      car "Honda", :before => lambda { self.car = "Accord" }
+      car "Honda", :before => proc { self.car = "Accord" }
       nope "I'm invalid", :if => lambda { |key, value|
         !self.is_a?(User)
       }
