@@ -1,6 +1,10 @@
 module Cockpit
   # settings have one direct definition and many child proxy
   class Settings
+    autoload :Definition, 'cockpit/core/definition'
+    autoload :Global,     'cockpit/core/global'
+    autoload :Spec,       'cockpit/core/spec'
+
     include Global
     
     class << self

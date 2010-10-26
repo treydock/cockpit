@@ -28,7 +28,7 @@ task :test do
   Dir["test/**/*"].each do |file|
     next unless File.basename(file) =~ /test_/
     next unless File.extname(file) == ".rb"
-    system "ruby #{file}"
+    system "ruby -Ilib #{file}"
   end
 end
 

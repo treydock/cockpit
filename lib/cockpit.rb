@@ -1,10 +1,14 @@
 require 'rubygems'
 require 'defined-by'
 
-this = File.expand_path(File.dirname(__FILE__))
-Dir["#{this}/cockpit/*"].each { |c| require c unless File.directory?(c) }
-Dir["#{this}/cockpit/core/*"].each { |c| require c unless File.directory?(c) }
-Dir["#{this}/cockpit/adapters/*"].each { |c| require c unless File.directory?(c) }
+module Cockpit
+  autoload :Scope,        'cockpit/core/scope'
+  autoload :Settings,     'cockpit/core/settings'
+  autoload :Store,        'cockpit/core/store'
+  autoload :ViewHelpers,  'cockpit/core/helpers'
+end
+
+require 'lib/cockpit/core/include'
 
 ActiveRecord::Base.send(:include, Cockpit) if defined?(ActiveRecord::Base)
 
