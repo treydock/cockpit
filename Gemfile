@@ -7,6 +7,7 @@ group :development do
   gem 'test-unit'
   gem 'shoulda'
 
+  gem 'activesupport'
   gem 'activerecord'
   gem 'sqlite3-ruby'
 end

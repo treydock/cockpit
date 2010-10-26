@@ -35,7 +35,7 @@ module Cockpit
       end
       
       def parsed_value
-        JSON.parse(value)['root']
+        ::ActiveSupport::JSON.decode(value)['root']
       end
     end
     
