@@ -2,6 +2,7 @@ require 'rake'
 require 'rake/rdoctask'
 require 'rake/testtask'
 require 'rake/gempackagetask'
+require 'bundler/setup'
 
 spec = Gem::Specification.new do |s|
   s.name              = "cockpit"
