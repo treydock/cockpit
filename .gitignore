@@ -18,6 +18,7 @@ coverage
 rdoc
 pkg
 .bundle
+*.rbc
 
 ## PROJECT::SPECIFIC
 
