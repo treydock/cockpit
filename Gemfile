@@ -9,6 +9,10 @@ group :development do
 
   gem 'activerecord'
   gem 'sqlite3-ruby'
-
-  gem 'defined-by'
 end
+
+# dependencies
+gem 'defined-by'
+
+# TODO: use `gemspec` instead
+# in order to this we have to gemspec first!
