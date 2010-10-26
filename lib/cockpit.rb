@@ -8,7 +8,7 @@ module Cockpit
   autoload :ViewHelpers,  'cockpit/core/helpers'
 end
 
-require 'lib/cockpit/core/include'
+require 'cockpit/core/include'
 
 ActiveRecord::Base.send(:include, Cockpit) if defined?(ActiveRecord::Base)
 
