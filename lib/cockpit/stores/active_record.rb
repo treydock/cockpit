@@ -27,7 +27,7 @@ module Cockpit
     end
     
     class Setting < ::ActiveRecord::Base
-      set_table_name 'settings'
+      self.table_name = 'settings'
       belongs_to :configurable, :polymorphic => true
       
       def cockpit
