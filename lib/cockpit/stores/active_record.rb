@@ -10,7 +10,7 @@ module Cockpit
       def self.included(base)
         base.class_eval do
           has_many :settings, :as => :configurable, :class_name => "::Cockpit::AR::Setting", :dependent => :destroy
-          
+
           unless respond_to?("get")
             def get(key)
               cockpit[key]
@@ -29,6 +29,8 @@ module Cockpit
     class Setting < ::ActiveRecord::Base
       self.table_name = 'settings'
       belongs_to :configurable, :polymorphic => true
+
+      validates_uniqueness_of :key, :scope => [:configurable_type, :configurable_id]          
       
       def cockpit
         configurable ? configurable.cockpit : Cockpit::Settings.global
@@ -61,6 +63,8 @@ module Cockpit
       end
     
       def []=(key, value)
+Rails.logger.debug "DEBUG - record = #{record}"
+#Rails.logger.debug "DEBUG - record new? = #{record.new_record?}"
         record.save! if record && record.new_record?
         
         setting = find_setting(key)
