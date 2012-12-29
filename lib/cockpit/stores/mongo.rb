@@ -23,7 +23,12 @@ module Cockpit
     end
     
     class Store
+      attr_reader :name, :context
       
+      def initialize(name, context = "default")
+        @name = name
+        @context = context
+      end  
     end
   end
 end
